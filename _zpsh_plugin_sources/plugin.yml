@@ -1,0 +1,53 @@
+name: ZPSHPlugin
+main: ZPSHPlugin
+version: 0.1-dev
+commands:
+    py:
+        description: exec python runtime code
+        usage: /py <code>
+        permissions: py.execute
+    pyeval:
+        description: eval python runtime code
+        usage: /pyeval <code>
+        permissions: py.execute
+    register_player:
+        description: register new player in system
+        usage: /register_player <name> <id (int 1-13)>
+        permissions: zpsh.register_players
+    remove_player:
+        description: remove player from system
+        usage: /remove_player <name>
+        permissions: zpsh.register_players
+    create_test:
+        description: create test
+        usage: /create_test <id> <players_count> <x_size> <y_size> <inputs_count> <outputs_count>
+        permissions: zpsh.test_admin
+    test_add:
+        description: Add test to system
+        usage: /test_add <id> <input_1 (0-1)> <input_2 (0-1)> ... <output_1 (0-1)> ...
+        permissions: zpsh.test_admin
+    test_remove:
+        description: Remove test from system
+        usage: /test_remove <id> <test_index>
+        permissions: zpsh.test_admin
+    test_list:
+        description: Show list of tests
+        usage: /test_list <id>
+        permissions: zpsh.test_admin
+    test_latency:
+        description: Set delay before tests
+        usage: /test_latency <id> <latency>
+        permissions: zpsh.test_admin
+    test_reload:
+        description: Reload test state
+        usage: /test_reload <id> <room_id>
+        permissions: zpsh.test_admin
+permissions:
+    py.execute:
+        description: Permission to execute python code in runtime
+    zpsh.line_cross:
+        description: Permission to cross all lines
+    zpsh.register_players:
+        description: Permission to add new players to ZPSH control system
+    zpsh.test_admin:
+        description: Permisiion to interact with test system
